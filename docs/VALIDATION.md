@@ -10,3 +10,7 @@
 Las pruebas de navegador se conservaron en `docs/validation/`. Requieren Playwright y Chromium en `/usr/bin/chromium`, con la app ejecutándose en el puerto 8765 y la demo estática en 8766. Crean exclusivamente cuentas y clientes ficticios; usar una base de datos de prueba. Las pruebas de Stripe/Groq emplean adaptadores simulados; ninguna llamada autenticada real se ha validado porque no hay credenciales configuradas.
 
 Docker: se descargaron las imágenes base, pero los pasos `pip install`/`npm ci` dentro del build no resuelven DNS, incluso con red host. El Dockerfile no está validado de extremo a extremo. La API GitHub tampoco resultó accesible mediante el proxy para administrar Pages. No confundir código subido con un sitio publicado: confirmar el workflow de Pages en GitHub.
+
+## Piloto Baileys
+
+Se incorporó un gateway de prueba por QR para un único administrador y destinatario configurados localmente. Seis pruebas Node verifican identidad, autorización, contenido exacto, persistencia, deduplicación, concurrencia y rechazo de destinatario no registrado. La auditoría npm del gateway no encontró vulnerabilidades conocidas. La conexión real desde este entorno devuelve HTTP 403 en el túnel hacia `web.whatsapp.com`; no se generó un QR ni se confirmó envío a un teléfono real. El lanzador local permite continuar la vinculación desde Windows/macOS/Linux.

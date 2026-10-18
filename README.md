@@ -53,7 +53,7 @@ Los cupos forman parte de la oferta a validar. **No se descuentan ni se anuncian
 
 Consulta [la guía de lanzamiento](docs/LAUNCH.md). Se incluye Dockerfile de dos etapas y CI para build y pruebas. Este repositorio es un piloto funcional, **no una publicación comercial terminada**.
 
-No se han implementado envío automático a WhatsApp, QR, Signal, generación/alojamiento de prototipos ni los 136 leads citados en el manifiesto. El documento no incluía esos datos ni código. Los precios de 1.000 AED y 500 AED/año corresponden a las propuestas de servicios a clientes; **no son el precio de la suscripción a Jota**.
+Se incluye un piloto Baileys separado para vinculación por QR y un mensaje de prueba controlado del administrador. No se han implementado el gateway multiempresa de producción, generación/alojamiento de prototipos ni los 136 leads citados en el manifiesto. El documento no incluía esos datos ni código. Los precios de 1.000 AED y 500 AED/año corresponden a las propuestas de servicios a clientes; **no son el precio de la suscripción a Jota**.
 
 Esta edición almacena datos en el servidor; no promete soberanía exclusivamente local. Groq implica procesamiento externo y Stripe procesa la facturación.
 
@@ -73,3 +73,7 @@ VITE_DEMO_MODE=true npm run build --prefix frontend -- --base=/cubaloop/ --outDi
 ```
 
 El SaaS completo necesita servidor con almacenamiento persistente; GitHub Pages no puede alojar Python, claves ni webhooks.
+
+## Probar WhatsApp real
+
+En Windows, descarga y extrae el proyecto, instala Node.js 24 LTS y abre `PROBAR-WHATSAPP.cmd`. El panel local permite configurar el administrador y el destinatario, vincular por QR y enviar una única prueba revisada. No envía nada al escanear. [Guía completa y límites](docs/WHATSAPP.md). GitHub Pages incluye la sección **Probar WhatsApp**, pero no ejecuta el gateway.

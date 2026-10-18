@@ -17,3 +17,5 @@ jobs:
       - run: npm ci --prefix frontend
       - run: npm run build --prefix frontend
       - run: python -m pytest backend/tests -q
+      - run: npm ci --prefix sidecars/wa-gateway
+      - run: npm test --prefix sidecars/wa-gateway

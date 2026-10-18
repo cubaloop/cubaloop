@@ -153,6 +153,7 @@ function App() {
             ["overview", LayoutDashboard, "Vista general"],
             ["crm", Users, "Clientes"],
             ["project", BriefcaseBusiness, "Proyecto activo"],
+            ["whatsapp", CircleHelp, "Probar WhatsApp"],
             ["settings", Settings, "Configuración"],
           ].map(([id, Icon, text]) => (
             <button
@@ -218,6 +219,7 @@ function App() {
                 crm: "Clientes",
                 project: "Proyecto activo",
                 settings: "Configuración",
+                whatsapp: "Probar WhatsApp",
               }[tab]
             }
           </span>
@@ -698,6 +700,91 @@ function App() {
               )}
             </>
           )}
+          {tab === "whatsapp" && (
+            <>
+              <div className="page-heading">
+                <div>
+                  <p className="eyebrow">
+                    CONEXIÓN REAL · PILOTO DEL ADMINISTRADOR
+                  </p>
+                  <h1>Prueba Jota en WhatsApp.</h1>
+                  <p>
+                    Vincula por QR, revisa el mensaje y envía una prueba desde
+                    tu ordenador.
+                  </p>
+                </div>
+              </div>
+              <div className="settings-grid">
+                <section className="card editor">
+                  <h2>1. Abre el piloto local</h2>
+                  <p>
+                    Descarga el proyecto, extrae el ZIP e instala Node.js 24
+                    LTS. En Windows, abre <strong>PROBAR-WHATSAPP.cmd</strong>.
+                    El panel privado se abrirá en tu navegador.
+                  </p>
+                  <a
+                    className="secondary"
+                    href="https://github.com/cubaloop/cubaloop/archive/refs/heads/main.zip"
+                  >
+                    Descargar proyecto <Download size={16} />
+                  </a>
+                  <p>
+                    <a
+                      href="https://nodejs.org/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Instalar Node.js ↗
+                    </a>
+                  </p>
+                </section>
+                <section className="card editor">
+                  <h2>2. Vincula y revisa</h2>
+                  <p>
+                    Introduce el número administrador, el destinatario, su
+                    nombre y el mensaje. Guarda, pulsa Mostrar QR y escanea
+                    desde WhatsApp → Dispositivos vinculados.
+                  </p>
+                  <p>
+                    El número vinculado debe coincidir con el administrador.
+                    Después revisa el texto y pulsa Enviar una prueba.
+                  </p>
+                </section>
+                <section className="card editor">
+                  <h2>Una prueba controlada</h2>
+                  <p>
+                    No se envía nada al escanear. El piloto evita repetir el
+                    mensaje por un doble clic o una reconexión. No lee ni
+                    contesta tus conversaciones personales.
+                  </p>
+                  <p>
+                    Baileys es una biblioteca no oficial. Los cupos comerciales
+                    siguen pendientes de implementación.
+                  </p>
+                  <a
+                    className="secondary"
+                    href="https://github.com/cubaloop/cubaloop/blob/main/docs/WHATSAPP.md"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Guía de prueba completa <ArrowUpRight size={16} />
+                  </a>
+                </section>
+                <section className="card editor">
+                  <h2>¿Por qué fuera de esta página?</h2>
+                  <p>
+                    GitHub Pages solo sirve esta demostración. La sesión de
+                    WhatsApp necesita un proceso activo y almacenamiento
+                    privado, que el piloto mantiene en tu ordenador.
+                  </p>
+                  <p>
+                    Nunca subas la carpeta .local ni compartas el enlace privado
+                    del operador.
+                  </p>
+                </section>
+              </div>
+            </>
+          )}
           {tab === "settings" && (
             <>
               <div className="page-heading">
@@ -791,9 +878,14 @@ function App() {
                   </p>
                   <div className="integration">
                     <span>
-                      WhatsApp<small>Conexión automática</small>
+                      WhatsApp<small>Piloto Baileys del administrador</small>
                     </span>
-                    <span className="badge neutral">No disponible</span>
+                    <button
+                      className="secondary"
+                      onClick={() => setTab("whatsapp")}
+                    >
+                      Probar por QR
+                    </button>
                   </div>
                   <p>
                     Esta versión permite copiar propuestas y registrar contactos
@@ -812,7 +904,7 @@ function App() {
                   </button>
                   <p className="hint">
                     Versión piloto 0.1 · No se han activado cobros reales ni
-                    conexión con WhatsApp.
+                    WhatsApp para clientes SaaS.
                   </p>
                 </section>
               </div>

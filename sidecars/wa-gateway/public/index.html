@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jota · Prueba de WhatsApp</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <strong>jota<span> · WhatsApp</span></strong>
+        <p>Panel privado del operador · Baileys</p>
+      </header>
+      <div class="notice">
+        Vinculación real por QR. Baileys no es una integración oficial de Meta.
+        Este piloto no lee ni responde a tus conversaciones.
+      </div>
+      <div id="error" role="alert" hidden></div>
+      <section>
+        <h1>Una prueba, bajo tu control.</h1>
+        <p>
+          Configura el administrador, revisa el destinatario y el texto.
+          Vincular la cuenta no envía mensajes.
+        </p>
+        <form id="config">
+          <div class="row">
+            <label
+              >Número del administrador<input
+                name="admin"
+                type="tel"
+                placeholder="+971…"
+                required /></label
+            ><label
+              >Número de prueba<input
+                name="recipient"
+                type="tel"
+                placeholder="+971…"
+                required
+            /></label>
+          </div>
+          <label
+            >Nombre del destinatario<input
+              name="name"
+              placeholder="Nombre"
+              required
+              maxlength="80" /></label
+          ><label
+            >Mensaje personalizado<textarea
+              name="message"
+              rows="5"
+              required
+              minlength="10"
+              maxlength="2000"
+            ></textarea></label
+          ><button type="submit">1. Guardar esta prueba</button>
+        </form>
+      </section>
+      <section>
+        <h2>Vincula tu cuenta</h2>
+        <p>
+          En tu teléfono: WhatsApp → Dispositivos vinculados → Vincular un
+          dispositivo. Escanea este QR en vivo. No compartas capturas del QR.
+        </p>
+        <button id="connect">2. Mostrar QR</button>
+        <p id="status" role="status">Preparando panel…</p>
+        <img id="qr" alt="Código QR privado para vincular WhatsApp" hidden />
+        <p id="detail"></p>
+      </section>
+      <section>
+        <h2>Envía el mensaje de prueba</h2>
+        <p id="review">Guarda primero el destinatario y el mensaje.</p>
+        <pre id="message"></pre>
+        <label class="confirm"
+          ><input type="checkbox" id="confirm" />He revisado este destinatario y
+          el texto; autorizo este mensaje de prueba.</label
+        ><button id="send" disabled>3. Enviar una prueba</button>
+        <p id="receipt">Todavía no se ha enviado ningún mensaje.</p>
+        <small
+          >El envío queda registrado en disco para evitar duplicados. Aceptado
+          por WhatsApp no significa entregado ni leído. Si un intento queda
+          incierto, revisa el teléfono antes de repetirlo.</small
+        >
+      </section>
+      <footer>
+        Este panel funciona en tu ordenador o servidor. GitHub Pages solo aloja
+        la demostración.
+      </footer>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

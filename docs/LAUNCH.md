@@ -56,4 +56,4 @@ Completar las funciones de cuenta y cuotas indicadas arriba; aprobar precio y mo
 
 ## Primera validación de valor
 
-El propietario ha elegido GitHub como primera publicación. Usar el workflow de demostración de Pages descrito en README. En esta etapa no activar Stripe live ni anunciar mensajes disponibles: la oferta está visible para validar interés, pero el canal WhatsApp y el control de cupos de envíos reales aún no están implementados.
+El propietario ha elegido GitHub como primera publicación. Usar el workflow de demostración de Pages descrito en README. En esta etapa no activar Stripe live ni anunciar mensajes disponibles: la oferta está visible para validar interés, pero el canal multiempresa y el control de cupos de envíos reales aún no están implementados. El piloto Baileys del administrador permite validar por separado una conexión QR y un mensaje de prueba; consulta docs/WHATSAPP.md.
